@@ -19,7 +19,7 @@ Formats :
 - x : hexadecimal format , it is the default if not format passed
 - o:octal format
 - c:ASCII format
-- C: hexadecimal and aSCII format
+- C:hexadecimal and aSCII format
 - d:decimal format 
 
 e.g to dump contents of file in ASCII
