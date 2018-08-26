@@ -27,6 +27,12 @@ int validateArg(int argc , char *argv[],UtilConfig*config)
 		fseek(ptr,0l,SEEK_END);
 		//get total # of bytes in file
 		fileSize=ftell(ptr);
+		config->fileSize=fileSize;
+		config->pagesCount=fileSize/(MAX_ROWS*MAX_COLS);
+		if(fileSize%(MAX_COLS*MAX_ROWS)!=0)
+		{
+			config->pagesCount++;
+		}
 		fileSize=(log(fileSize)/log(2));
 		config->addressSize=(fileSize/8 )+1;
 		config->fPtr=ptr;
@@ -55,6 +61,9 @@ int validateArg(int argc , char *argv[],UtilConfig*config)
 			case 'C':
 			config->format=HEXASCII;
 			break;
+			case 'd':
+			config->format=DECIMAL;
+			break;
 			default:
 			config->format=HEX;
 			break;
@@ -62,4 +71,34 @@ int validateArg(int argc , char *argv[],UtilConfig*config)
 		}
 	}
 	return 1;
+}
+
+void printStream(unsigned char *stream,int len,DispFormat format,char *delimiter)
+{
+	int i=0;
+	for(i=0;i<len;i++)
+	{
+		switch(format)
+		{
+			case HEX:
+				printf("%.2x",stream[i]);
+				break;
+			case OCTAL:
+				printf("%o",stream[i]);
+				break;
+			case ASCII:
+				printf("%c",stream[i]);
+				break;
+			case DECIMAL:
+				printf("%d",stream[i]);
+				break;
+			default:
+				printf("%.2x",stream[i]);			
+		}
+		if(i!= len-1)
+		{
+			printf("%s",delimiter);	
+		}
+		
+	}
 }

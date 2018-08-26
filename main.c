@@ -9,6 +9,8 @@ int main( int argc,char *argv[])
 	{
 		return 0;
 	}
-	printf("%d\n",config.format);
+	unsigned char c[]={0x12,0x44,0x88,0xaf};
+	printStream(c,4,HEX,"--");
+	puts("");
 	return 0;
 }
