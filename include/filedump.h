@@ -1,6 +1,7 @@
 #ifndef __FILEDUMP__
 #define __FILEDUMP__
 #include <stdio.h>
+#include <math.h>
 //display formats allowed in utility
 typedef enum{HEX,OCTAL,ASCII,HEXASCII}DispFormat;
 
