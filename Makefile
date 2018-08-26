@@ -1,9 +1,13 @@
 CC=gcc
 CFLAGS= -I.
 BIN = ./bin/
+SRC= $(wildcard ./src/*.c)
+SRC += main.c
 
-fileDump : main.c
-	$(CC) main.c -o $(BIN)fileDump $(CFLAGS)
+OBJ=$(SRC:.c=.o)
+
+fileDump : $(OBJ)
+	$(CC)  -o $(BIN)$@ $^ $(CFLAGS)
 
 .clean:
-	rm -r *.o	
+	rm -f $(OBJ)	

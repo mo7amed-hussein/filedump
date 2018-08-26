@@ -1,13 +1,13 @@
 #ifndef __FILEDUMP__
 #define __FILEDUMP__
-
+#include <stdio.h>
 //display formats allowed in utility
 typedef enum{HEX,OCTAL,ASCII,HEXASCII}DispFormat;
 
 //config structure
 typedef struct 
 {
-	File *fPtr;//hold file pointer
+	FILE *fPtr;//hold file pointer
 	DispFormat format;//display format
 	int addressSize;// address size based on file size 
 }UtilConfig;
@@ -17,7 +17,7 @@ typedef struct
 	@param argc number of arguments
 	@param argv array of arguments strings
 	@param config pointer to UtilConfig strucutre
-	@return 0 if arguments validation is success else -1
+	@return 1 if arguments validation is success else 0
 **/
 int validateArg(int argc , char *argv[],UtilConfig*config);
 

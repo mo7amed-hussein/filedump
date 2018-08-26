@@ -1,7 +1,13 @@
 #include<stdio.h>
+#include "include/filedump.h"
 
 int main( int argc,char *argv[])
 {
-	printf("fileDump Test ...\n");
+	UtilConfig config;
+	//validate arguments
+	if(validateArg(argc,argv,&config)==0)
+	{
+		return 0;
+	}
 	return 0;
 }
