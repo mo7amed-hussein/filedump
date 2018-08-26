@@ -3,7 +3,6 @@
 int validateArg(int argc , char *argv[],UtilConfig*config)
 {
 
-	char isArgValid=1;//validation flag
 	//check arguments count
 	if(argc<2)
 	{
@@ -34,5 +33,33 @@ int validateArg(int argc , char *argv[],UtilConfig*config)
 		rewind(ptr);
 	}
 	//check format argument if passed
-	return isArgValid;
+	if(argc<3)
+	{
+		config->format=HEX;
+	}
+	else
+	{
+		char f;
+		sscanf(argv[2],"-%c",&f);
+		switch(f)
+		{
+			case 'c':
+			config->format=ASCII;
+			break;
+			case 'x':
+			config->format=HEX;
+			break;
+			case 'o':
+			config->format=OCTAL;
+			break;
+			case 'C':
+			config->format=HEXASCII;
+			break;
+			default:
+			config->format=HEX;
+			break;
+
+		}
+	}
+	return 1;
 }

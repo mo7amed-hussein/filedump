@@ -9,6 +9,6 @@ int main( int argc,char *argv[])
 	{
 		return 0;
 	}
-	printf("%d\n",config.addressSize);
+	printf("%d\n",config.format);
 	return 0;
 }
