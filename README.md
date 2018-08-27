@@ -3,7 +3,7 @@
 fileDump utility has ability to dump contents of any file into many formats like hexadecimal, octal, ASCII and decimal.
 
 ### Screenshots
-===============
+
 ![Screenshots](https://github.com/mo7amed-hussein/filedump/raw/master/shot1.png)
 
 ### How to compile it 
