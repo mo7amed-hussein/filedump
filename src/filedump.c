@@ -84,11 +84,11 @@ void printStream(unsigned char *stream,int len,DispFormat format,char *delimiter
 				printf("%.2x",stream[i]);
 				break;
 			case OCTAL:
-				printf("%o",stream[i]);
+				printf("%.3o",stream[i]);
 				break;
 			case ASCII:
 
-				if(stream[i] !='\n' && stream[i] !='\t'&&stream[i] !='\r')
+				if(stream[i]>=' '&&stream[i]<=127)
 				{
 					printf("%c",stream[i]);
 				}
@@ -98,7 +98,7 @@ void printStream(unsigned char *stream,int len,DispFormat format,char *delimiter
 				}
 				break;
 			case DECIMAL:
-				printf("%d",stream[i]);
+				printf("%.3d",stream[i]);
 				break;
 			default:
 				printf("%.2x",stream[i]);			

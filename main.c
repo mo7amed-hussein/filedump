@@ -7,6 +7,7 @@ int main( int argc,char *argv[])
 	char isDone=0;
 	int address=0;
 	int len=0;
+	int r=0;
 	int spaces=0;
 	char printFormat[15];
 	unsigned char stream[MAX_COLS];
@@ -32,11 +33,13 @@ int main( int argc,char *argv[])
 			printf("%*c",spaces,' ');
 			printf("|   ");
 			printStream(stream,len,ASCII," ");
-			printf("%*c|",spaces,' ');
+			if(len==MAX_COLS)
+				printf("%*c|",spaces,' ');
 		}
 		
 		printf("\n");
 		address +=len;
+		r++;
 		if(address>=config.fileSize)
 		{
 			isDone=1;
