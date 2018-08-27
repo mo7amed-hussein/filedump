@@ -87,7 +87,15 @@ void printStream(unsigned char *stream,int len,DispFormat format,char *delimiter
 				printf("%o",stream[i]);
 				break;
 			case ASCII:
-				printf("%c",stream[i]);
+
+				if(stream[i] !='\n' && stream[i] !='\t'&&stream[i] !='\r')
+				{
+					printf("%c",stream[i]);
+				}
+				else
+				{
+					printf(" ");
+				}
 				break;
 			case DECIMAL:
 				printf("%d",stream[i]);
